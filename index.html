@@ -125,23 +125,17 @@
   </div>
 </section>
 
-
-<!-- Teaser video-->
+<!-- Teaser Image -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
+      <img src="static/images/overview.png" alt="Teaser Image" class="teaser-image">
       <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+        <b>Model-Based Transfer Learning (MBTL) for solving contextual MDPs</b>. MBTL framework strategically selects optimal tasks to train by modeling the generalization gap that arises when transferring a model to different tasks. For each target task, we deploy the most effective trained model, indicated by solid arrows. We evaluate our framework on a suite of continuous and discrete tasks, including standard control benchmarks and urban traffic benchmarks.
       </h2>
     </div>
   </div>
 </section>
-<!-- End teaser video -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -160,105 +154,73 @@
 </section>
 <!-- End paper abstract -->
 
+<!-- Method Image -->
+<section class="hero">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Model-Based Transfer Learning</h2>
+      <img src="static/images/MBTL.png" alt="Method Image" class="method-image">
+    </div>
+  </div>
 
 <!-- Image carousel -->
 <section class="hero is-small">
   <div class="hero-body">
+    <h2 class="title is-3">Experiments</h2>
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
+        <img src="static/images/advisory-network.png" alt="advisory-network"/>
         <h2 class="subtitle has-text-centered">
-          First image description.
+          Advisory Autonomy.
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+        <img src="static/images/traffic-signal-network.png" alt="traffic-signal-network"/>
         <h2 class="subtitle has-text-centered">
-          Second image description.
+          Traffic Signal Control
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+        <img src="static/images/eco-driving-network.png" alt="eco-driving-network"/>
         <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
+          Eco-Driving Control
+        </h2>
+      </div>
   </div>
 </div>
 </div>
 </section>
 <!-- End image carousel -->
 
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
+<!-- Image carousel -->
 <section class="hero is-small">
   <div class="hero-body">
+    <h2 class="title is-3">Results</h2>
     <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
       <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
+       <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/result_figure_control.png" alt="result_figure_control"/>
+        <h2 class="subtitle has-text-centered">
+          Results on control tasks.
+        </h2>
       </div>
-    </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/result_figure_traffic.png" alt="result_figure_traffic"/>
+        <h2 class="subtitle has-text-centered">
+          Results on traffic tasks.
+        </h2>
+      </div>
   </div>
+</div>
+</div>
 </section>
-<!-- End video carousel -->
-
-
-
+<!-- End image carousel -->
 
 
 
@@ -281,10 +243,10 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@article{cho2024model,
+      <pre><code>@inproceedings{cho2024model,
         title={Model-Based Transfer Learning for Contextual Reinforcement Learning},
         author={Cho, Jung-Hoon and Jayawardana, Vindula and Li, Sirui and Wu, Cathy},
-        journal={arXiv preprint arXiv:2408.04498},
+        booktitle={Thirty-Eighth Conference on Neural Information Processing Systems},
         year={2024}
       }</code></pre>
     </div>
