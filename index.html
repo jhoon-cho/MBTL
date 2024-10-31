@@ -167,7 +167,7 @@
       <div class="hero-body">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-4"><b>"While conceptually simple, MBTL achieves an improved sample efficiency of 20-35x on standard and real-world benchmark tasks."</b></h2>
+          <h2 class="title is-4"><b>"While conceptually simple, MBTL achieves an improved sample efficiency of 8-50x on standard and real-world benchmark tasks."</b></h2>
         </div>
       </div>
       </div>
@@ -200,24 +200,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Deep reinforcement learning is a powerful approach to complex decision making. However, one issue that
-              limits its practical application is its brittleness, sometimes failing to train in the presence of small
-              changes in the environment. This work is motivated by the empirical observation that directly applying an
-              already trained model to a related task often works remarkably well, also called zero-shot transfer. We
-              take this practical trick one step further to consider how to systematically select good tasks to train,
-              maximizing overall performance across a range of tasks. Given the high cost of training, it is critical to
-              choose a small set of training tasks. The key idea behind our approach is to explicitly model the
-              performance loss (generalization gap) incurred by transferring a trained model. We hence introduce
-              Model-Based Transfer Learning (MBTL) for solving contextual RL problems. In this work, we model the
-              performance loss as a simple linear function of task context similarity. Furthermore, we leverage Bayesian
-              optimization techniques to efficiently model and estimate the unknown training performance of the task
-              space. We theoretically show that the method exhibits regret that is sublinear in the number of training
-              tasks and discuss conditions to further tighten regret bounds. We experimentally validate our methods
-              using urban traffic and standard control benchmarks. Despite the conceptual simplicity, the experimental
-              results suggest that MBTL can achieve greater performance than strong baselines, including exhaustive
-              training on all tasks, multi-task training, and random selection of training tasks. This work lays the
-              foundations for investigating explicit modeling of generalization, thereby enabling principled yet
-              effective methods for contextual RL.
+              Deep reinforcement learning (RL) is a powerful approach to complex decision-making. However, one issue that limits its practical application is its brittleness, sometimes failing to train in the presence of small changes in the environment. Motivated by the success of zero-shot transfer—where pre-trained models perform well on related tasks—we consider the problem of selecting a good set of training tasks to maximize generalization performance across a range of tasks. Given the high cost of training, it is critical to select training tasks strategically, but not well understood how to do so. We hence introduce Model-Based Transfer Learning (MBTL), which layers on top of existing RL methods to effectively solve contextual RL problems. MBTL models the generalization performance in two parts: 1) the performance set point, modeled using Gaussian processes, and 2) performance loss (generalization gap), modeled as a linear function of contextual similarity. MBTL combines these two pieces of information within a Bayesian optimization (BO) framework to strategically select training tasks. We show theoretically that the method exhibits sublinear regret in the number of training tasks and discuss conditions to further tighten regret bounds. We experimentally validate our methods using urban traffic and standard continuous control benchmarks. The experimental results suggest that MBTL can achieve up to 50x improved sample efficiency compared with canonical independent training and multi-task training. Further experiments demonstrate the efficacy of BO and the insensitivity to the underlying RL algorithm and hyperparameters. This work lays the foundations for investigating explicit modeling of generalization, thereby enabling principled yet effective methods for contextual RL.
             </p>
           </div>
         </div>
@@ -256,6 +239,18 @@
       <div class="hero-body">
         <h2 class="title is-3">Model-Based Transfer Learning</h2>
         <img src="static/images/model-based transfer learning.png" alt="Method Image" class="method-image">
+      </div>
+    </div>
+  </section>
+  <section class="hero">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <h2 class="title is-3">MBTL process</h2>
+        <img src="static/images/mbtl_process.png" alt="Method Detail" class="method-image">
+        <h2 class="subtitle has-text-centered">
+          <br>
+          <b>Overview illustration for Model-based Transfer Learning.</b> (a) Gaussian process regression is used to estimate the training performance across tasks using existing policies; (b) marginal generalization performance (red area) is calculated using upper confidence bound of estimated training performance, generalization gap, and generalization performance; (c) selects the next training task that maximizes the acquisition function (marginal generalization performance); (d) once the selected task is trained, calculate generalization performance using zero-shot transfer.
+        </h2>
       </div>
     </div>
   </section>
