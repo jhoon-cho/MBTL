@@ -87,17 +87,6 @@
                   </a>
                 </span>
 
-                <!-- Arxiv PDF link -->
-                <!-- <span class="link-block">
-                  <a href="https://arxiv.org/pdf/2408.04498.pdf" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                    </span>
-                    <span>Paper</span>
-                  </a>
-                </span> -->
-
                 <!-- Poster PDF link -->
                 <span class="link-block">
                   <a href="static/pdfs/2024-12-09 NeurIPS Poster MBTL.pdf" target="_blank"
@@ -111,26 +100,37 @@
 
                 <!-- Github link -->
                 <span class="link-block">
-                  <!-- <a href="https://github.com/jhoon-cho/MBTL" target="_blank" -->
-                  <a href="./" target="_blank"
+                  <!-- <a href="./" target="_blank" -->
+                  <a href="https://github.com/jhoon-cho/MBTL" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code (To be released)</span>
+                    <span>Code</span>
                   </a>
                 </span>
 
                 <!-- X.com link -->
-                <!-- <span class="link-block">
-                  <a href="https://x.com/jhooncho" target="_blank"
+                <span class="link-block">
+                  <a href="https://x.com/wucathy/status/1859994056669221256" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <img src="https://x.com/favicon.ico" alt="X.com favicon" style="width: 1em; height: 1em;">
                     </span>
-                    <span>X.com</span>
+                    <span>Tweet</span>
                   </a>
-                </span> -->
+                </span>
+
+                <!-- News article link-->
+                <span class="link-block">
+                  <a href="https://news.mit.edu/2024/mit-researchers-develop-efficiency-training-more-reliable-ai-agents-1122" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="https://sts-program.mit.edu/wp-content/uploads/2023/12/mit-favicon-white-on-black-512x512-1.png" alt="MIT news favicon" style="width: 1em; height: 1em;">
+                    </span>
+                    <span>MIT News</span>
+                  </a>
+                </span>
 
                 <!-- Openreview link -->
                 <span class="link-block">
@@ -167,7 +167,7 @@
       <div class="hero-body">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-4"><b>"While conceptually simple, MBTL achieves an improved sample efficiency of 8-50x on standard and real-world benchmark tasks."</b></h2>
+          <h2 class="title is-4"><b>"MBTL achieves an improved sample efficiency of 5-50x on toy and real-world benchmark tasks."</b></h2>
         </div>
       </div>
       </div>
@@ -200,7 +200,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Deep reinforcement learning (RL) is a powerful approach to complex decision-making. However, one issue that limits its practical application is its brittleness, sometimes failing to train in the presence of small changes in the environment. Motivated by the success of zero-shot transfer—where pre-trained models perform well on related tasks—we consider the problem of selecting a good set of training tasks to maximize generalization performance across a range of tasks. Given the high cost of training, it is critical to select training tasks strategically, but not well understood how to do so. We hence introduce Model-Based Transfer Learning (MBTL), which layers on top of existing RL methods to effectively solve contextual RL problems. MBTL models the generalization performance in two parts: 1) the performance set point, modeled using Gaussian processes, and 2) performance loss (generalization gap), modeled as a linear function of contextual similarity. MBTL combines these two pieces of information within a Bayesian optimization (BO) framework to strategically select training tasks. We show theoretically that the method exhibits sublinear regret in the number of training tasks and discuss conditions to further tighten regret bounds. We experimentally validate our methods using urban traffic and standard continuous control benchmarks. The experimental results suggest that MBTL can achieve up to 50x improved sample efficiency compared with canonical independent training and multi-task training. Further experiments demonstrate the efficacy of BO and the insensitivity to the underlying RL algorithm and hyperparameters. This work lays the foundations for investigating explicit modeling of generalization, thereby enabling principled yet effective methods for contextual RL.
+              Deep reinforcement learning (RL) is a powerful approach to complex decision making. However, one issue that limits its practical application is its brittleness, sometimes failing to train in the presence of small changes in the environment. Motivated by the success of zero-shot transfer—where pre-trained models perform well on related tasks—we consider the problem of selecting a good set of training tasks to maximize generalization performance across a range of tasks. Given the high cost of training, it is critical to select training tasks strategically, but not well understood how to do so. We hence introduce Model-Based Transfer Learning (MBTL), which layers on top of existing RL methods to effectively solve contextual RL problems. MBTL models the generalization performance in two parts: 1) the performance set point, modeled using Gaussian processes, and 2) performance loss (generalization gap), modeled as a linear function of contextual similarity. MBTL combines these two pieces of information within a Bayesian optimization (BO) framework to strategically select training tasks. We show theoretically that the method exhibits sublinear regret in the number of training tasks and discuss conditions to further tighten regret bounds. We experimentally validate our methods using urban traffic and standard continuous control benchmarks. The experimental results suggest that MBTL can achieve up to 50x improved sample efficiency compared with canonical independent training and multi-task training. Further experiments demonstrate the efficacy of BO and the insensitivity to the underlying RL algorithm and hyperparameters. This work lays the foundations for investigating explicit modeling of generalization, thereby enabling principled yet effective methods for contextual RL.
             </p>
           </div>
         </div>
@@ -237,15 +237,28 @@
   <section class="hero">
     <div class="container is-max-desktop">
       <div class="hero-body">
+        <h2 class="title is-3">Model for Generalization Performance</h2>
+        <div id="results-carousel" class="">
+          <div class="item">
+            <img src="static/images/generalization performance.png" alt="generalization performance" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="hero">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
         <h2 class="title is-3">Model-Based Transfer Learning</h2>
         <img src="static/images/model-based transfer learning.png" alt="Method Image" class="method-image">
       </div>
     </div>
-  </section>
+  </section> -->
   <section class="hero">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <h2 class="title is-3">MBTL process</h2>
+        <h2 class="title is-3">Model-Based Transfer Learning (MBTL) process</h2>
         <img src="static/images/mbtl_process.png" alt="Method Detail" class="method-image">
         <h2 class="subtitle has-text-centered">
           <br>
@@ -310,11 +323,23 @@
     <section class="hero">
       <div class="container is-max-desktop">
         <div class="hero-body">
-          <h2 class="title is-3">Results</h2>
+          <h2 class="title is-3">Results (Traffic CMDP benchmarks)</h2>
           <div id="results-carousel" class="">
             <div class="item">
-              <img src="static/images/control-results.png" alt="result_figure_control" />
-              <img src="static/images/traffic-results.png" alt="result_figure_control" />
+              <img src="static/images/result_figure_traffic_sample_log.png" alt="result_figure_control" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <h2 class="title is-3">Results (Control CMDP benchmarks)</h2>
+          <div id="results-carousel" class="">
+            <div class="item">
+              <img src="static/images/result_figure_control_sample_log.png" alt="result_figure_control" />
             </div>
           </div>
         </div>
@@ -324,7 +349,7 @@
 
 
     <!-- Paper poster -->
-    <section class="hero is-max-desktop is-light">
+    <!-- <section class="hero is-max-desktop is-light">
       <div class="hero-body">
         <div class="container">
           <h2 class="title">Poster</h2>
@@ -333,7 +358,7 @@
 
         </div>
       </div>
-    </section>
+    </section> -->
     <!--End paper poster -->
 
 
