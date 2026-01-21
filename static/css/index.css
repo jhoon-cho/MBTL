@@ -133,5 +133,43 @@ body {
   font-size: smaller;
 }
 
+.figure-grid {
+  row-gap: 1.5rem;
+}
+
+.figure-card {
+  background: #f9fafc;
+  border: 1px solid #e6e8ec;
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: 100%;
+  box-shadow: 0 6px 18px rgba(20, 23, 28, 0.08);
+}
+
+.figure-card img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.figure-card figcaption {
+  font-size: 0.95rem;
+  color: #4a4a4a;
+  line-height: 1.5;
+}
+
+.method-image {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+}
+
+.wide-figure {
+  max-height: 520px;
+}
 
 

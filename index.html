@@ -162,19 +162,7 @@
       </div>
     </div>
   </section>
-
-  <section class="hero teaser">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-4"><b>"MIT researchers develop an efficient approach for training more reliable reinforcement learning models, focusing on complex tasks that involve variability." (MIT News)</b></h2>
-        </div>
-      </div>
-      </div>
-    </div>
-  </section>
-
+  
   <!-- Teaser Image -->
   <section class="hero teaser">
     <div class="container is-max-desktop">
@@ -191,10 +179,26 @@
       </div>
     </div>
   </section>
+  
+    <section class="hero teaser is-light">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+          <br/>
+          <br/>
+          <h2 class="title is-4">
+            <b>"MIT researchers develop an efficient approach for training more reliable reinforcement learning models, focusing on complex tasks that involve variability." (MIT News)</b>
+          </h2>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
 
 
   <!-- Paper abstract -->
-  <section class="section hero is-light">
+  <section class="section hero">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
@@ -210,63 +214,77 @@
   </section>
   <!-- End paper abstract -->
 
-  <!-- Method Image -->
-  <section class="hero">
+  <!-- Why MBTL -->
+  <section class="hero is-light">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <h2 class="title is-3">Multi-Model Training</h2>
-        <img src="static/images/multi-model training.png" alt="Method Image" class="method-image">
+        <h2 class="title is-3">MBTL in a nutshell</h2>
+        <div class="content is-medium">
+          <ul>
+            <li><b>Pick training tasks that generalize:</b> MBTL reasons about how performance will transfer instead of treating every task as equally useful.</li>
+            <li><b>Model-driven selection:</b> it predicts both where a policy will learn well and how much it will lose when moved to new contexts.</li>
+            <li><b>Compatible by design:</b> MBTL wraps around standard RL algorithms, improving sample efficiency without re-engineering the base learner.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- Method overview -->
   <section class="hero">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <h2 class="title is-3">Zero-shot Transfer</h2>
-        <img src="static/images/zero-shot transfer.png" alt="Method Image" class="method-image">
-      </div>
-    </div>
-  </section>
-  <section class="hero">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <h2 class="title is-3">Generalization Gap</h2>
-        <img src="static/images/generalization gap.png" alt="Method Image" class="method-image">
-      </div>
-    </div>
-  </section>
-  <section class="hero">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <h2 class="title is-3">Model for Generalization Performance</h2>
-        <div id="results-carousel" class="">
-          <div class="item">
-            <img src="static/images/generalization performance.png" alt="generalization performance" />
+        <h2 class="title is-3">How MBTL works</h2>
+        <p class="subtitle is-5">A two-part model captures both training performance and the generalization gap, guiding which task to train next.</p>
+        <div class="columns is-multiline figure-grid">
+          <div class="column is-half">
+            <figure class="figure-card">
+              <img src="static/images/multi-model training.png" alt="Multi-model training illustration">
+              <figcaption><strong>Multi-model training pool.</strong> We train several policies across tasks and hyperparameter settings, building a library of candidate models to transfer from.</figcaption>
+            </figure>
+          </div>
+          <div class="column is-half">
+            <figure class="figure-card">
+              <img src="static/images/zero-shot transfer.png" alt="Zero-shot transfer illustration">
+              <figcaption><strong>Zero-shot transfer checks.</strong> Each trained model is evaluated on related tasks without additional training to see how well it carries over.</figcaption>
+            </figure>
+          </div>
+          <div class="column is-half">
+            <figure class="figure-card">
+              <img src="static/images/generalization gap.png" alt="Generalization gap illustration">
+              <figcaption><strong>Generalization gap modeling.</strong> We explicitly track the drop between in-task training performance and transfer performance to quantify how sensitive each task is.</figcaption>
+            </figure>
+          </div>
+          <div class="column is-half">
+            <figure class="figure-card">
+              <img src="static/images/generalization performance.png" alt="Generalization performance illustration">
+              <figcaption><strong>Predictive performance model.</strong> A Gaussian process estimates performance set points, while a linear term captures the gap; their combination drives the acquisition function for picking the next task.</figcaption>
+            </figure>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- <section class="hero">
+  <!-- MBTL loop -->
+  <section class="hero is-light">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <h2 class="title is-3">Model-Based Transfer Learning</h2>
-        <img src="static/images/model-based transfer learning.png" alt="Method Image" class="method-image">
-      </div>
-    </div>
-  </section> -->
-  <section class="hero">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <h2 class="title is-3">Model-Based Transfer Learning (MBTL) process</h2>
-        <!-- <img src="static/images/mbtl_process.png" alt="Method Detail" class="method-image"> -->
-        <img src="static/images/MBTL overview.gif" alt="Method Detail" class="method-image">
-        <h2 class="subtitle">
-          <br>
-          <b>Overview illustration for Model-based Transfer Learning.</b> (a) Gaussian process regression is used to estimate the training performance across tasks using existing policies; (b) marginal generalization performance (red area) is calculated using upper confidence bound of estimated training performance, generalization gap, and generalization performance; (c) selects the next training task that maximizes the acquisition function (marginal generalization performance); (d) once the selected task is trained, calculate generalization performance using zero-shot transfer.
-        </h2>
-        <img src="static/images/tweet_new.gif" alt="MBTL Detail" class="method-image">
+        <h2 class="title is-3">MBTL decision loop</h2>
+        <div class="columns is-variable is-6">
+          <div class="column">
+            <figure class="figure-card">
+              <img src="static/images/MBTL overview.gif" alt="MBTL overview animation" class="method-image">
+              <figcaption><strong>Acquisition-guided training.</strong> MBTL estimates training performance with a Gaussian process, computes marginal generalization performance using the gap model, selects the task with the highest acquisition value, then updates the models using fresh zero-shot transfer results.</figcaption>
+            </figure>
+          </div>
+          <div class="column">
+            <figure class="figure-card">
+              <img src="static/images/tweet_new.gif" alt="Animated walkthrough of MBTL iterations" class="method-image">
+              <figcaption><strong>Iterative rollout.</strong> The process repeats as models improve, steadily tightening uncertainty and focusing training on the most transferable tasks.</figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -326,23 +344,20 @@
     <section class="hero">
       <div class="container is-max-desktop">
         <div class="hero-body">
-          <h2 class="title is-3">Results (Traffic CMDP benchmarks)</h2>
-          <div id="results-carousel" class="">
-            <div class="item">
-              <img src="static/images/result_figure_traffic_sample_log.png" alt="result_figure_control" />
+          <h2 class="title is-3">Results</h2>
+          <p class="subtitle is-5">MBTL improves sample efficiency and transfer reliability across contextual RL benchmarks.</p>
+          <div class="columns is-multiline figure-grid">
+            <div class="column is-full">
+              <figure class="figure-card">
+                <img src="static/images/result_figure_traffic_sample_log.png" alt="Traffic CMDP results" class="wide-figure">
+                <figcaption><strong>Traffic CMDP benchmarks.</strong> MBTL achieves strong generalization with fewer training episodes compared to independent and multi-task baselines, improving stability across diverse traffic contexts.</figcaption>
+              </figure>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="hero">
-      <div class="container is-max-desktop">
-        <div class="hero-body">
-          <h2 class="title is-3">Results (Control CMDP benchmarks)</h2>
-          <div id="results-carousel" class="">
-            <div class="item">
-              <img src="static/images/result_figure_control_sample_log.png" alt="result_figure_control" />
+            <div class="column is-full">
+              <figure class="figure-card">
+                <img src="static/images/result_figure_control_sample_log.png" alt="Control CMDP results" class="wide-figure">
+                <figcaption><strong>Control CMDP benchmarks.</strong> On standard control tasks, MBTL converges faster and maintains higher transfer performance, demonstrating that the approach is not tied to a specific domain.</figcaption>
+              </figure>
             </div>
           </div>
         </div>
